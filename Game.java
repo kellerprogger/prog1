@@ -37,7 +37,7 @@ public class Game{
             String input = scan.nextLine();
             if (input.equals("1")){
                 dmg = Player.attack(monster))
-                if(atk == -1){
+                if(dmg == -1){
                     System.out.println("Attack Missed");
                 } else {
                     System.out.println("You've dealt: " + dmg + " Damage" );
@@ -45,7 +45,7 @@ public class Game{
             } else if (input.equals("2")){
                 boolean heal = Player.heal();
                 if (heal == true ){
-                    System.out.println("You where healed by: " 
+                    System.out.println("You where healed by: "
                     +  Player.healingPower);
                 } else {
                     System.out.println("Healing Failed!");
