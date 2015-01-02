@@ -29,22 +29,32 @@ public class Game{
         }
 
     public void fight(Player player, Monster monster){
+        
         Scanner scan = new Scanner();
+        int pDmg;
+        int mDmg;
+        boolean pHeal;
+        
         while (true){
             System.out.println(player.toString());
             System.out.println(monster.toString());
             System.out.println(player.actions());
             String input = scan.nextLine();
+        
             if (input.equals("1")){
-                int dmg = player.attack(monster))
-                if(dmg == -1){
+                pDmg = player.attack(monster))
+                
+                if(pDmg == -1){
                     System.out.println("Attack Missed");
                 } else {
-                    System.out.println("You've dealt: " + dmg + " Damage" );
+                    System.out.println("You've dealt: " + pDmg + " Damage" );
                 }
+                
             } else if (input.equals("2")){
-                boolean heal = player.heal();
-                if (heal == true ){
+                
+                pHeal = player.heal();
+                
+                if (pHeal == true ){
                     System.out.println("You where healed by: "
                     +  player.healingPower);
                 } else {
@@ -66,7 +76,7 @@ public class Game{
             System.out.println(player.toString());
             System.out.println(monster.toString());
             
-            int mDmg = monster.attack(player);
+            mDmg = monster.attack(player);
             
             if (mDmg == -1){
                 System.out.println("Monster Missed!");
