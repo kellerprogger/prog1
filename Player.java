@@ -67,15 +67,14 @@ public class Player{
     }
 
     public String toString(){
-        return 
+        return
             "--------Spieler-------\n" +
             "HP: "+ hp + "\n" +
-            "ATK: "+ atk + "\n" +
             "ATK: "+ atk + "\n" +
             "AP: "+ ap + "\n" +
             "Remaining Items: "+ getRemainingItemUses()) + "\n" +
             "----------------------" + "\n";
-    
+
     }
 
     public int regenerateAp(){
