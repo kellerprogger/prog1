@@ -3,7 +3,7 @@ public class Monster{
     int hp;
     int atk;
     double hitChance;
-    
+
     public Monster(int maxHp, int atk, double hitChance){
         this.maxHp = maxHp;
         this.atk = atk;
@@ -28,15 +28,16 @@ public class Monster{
         if (hitchance <= Math.random()){
             return -1;
         } else {
-            int x = int(atk*Math.random() )
+            int x = atk * (int (Math.random() + 1) )
             monster.takeDamage(x);
             return x;
         }
     }
     public String toString(){
-        System.out.println("---------------------.");
-        System.out.println("HP: "+ hp);
-        System.out.println("ATK: "+ atk);
-        System.out.println("----------------------");
+        return
+        "--------Monster-------\n" +
+        "HP: "+ hp + "\n" +
+        "ATK: "+ atk + "\n" +
+        "----------------------" + "\n";
     }
 }
