@@ -43,7 +43,7 @@ public class Player{
         if (hitchance <= Math.random()){
             return -1;
         } else {
-            int x = int(atk*Math.random() )
+            int x = atk * (int (Math.random() + 1) )
             monster.takeDamage(x);
             return x;
         }
@@ -67,11 +67,15 @@ public class Player{
     }
 
     public String toString(){
-        System.out.println("---------------------.");
-        System.out.println("HP: "+ hp);
-        System.out.println("ATK: "+ atk);
-        System.out.println("Remaining Items: "+ getRemainingItemUses());
-        System.out.println("----------------------");
+        return 
+            "--------Spieler-------\n" +
+            "HP: "+ hp + "\n" +
+            "ATK: "+ atk + "\n" +
+            "ATK: "+ atk + "\n" +
+            "AP: "+ ap + "\n" +
+            "Remaining Items: "+ getRemainingItemUses()) + "\n" +
+            "----------------------" + "\n";
+    
     }
 
     public int regenerateAp(){
@@ -99,5 +103,12 @@ public class Player{
             return -1;
         }
     }
-
+    public String actions(){
+        return
+        "Moegliche Aktionen: \n" +
+        "1 -> Attack \n" +
+        "2 -> Item (" + getRemainingItemUses(); + " remaining) \n" +
+        "3 -> Spell" +
+        "Welche Aktion?:\n";
+    }
 }
