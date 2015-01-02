@@ -36,7 +36,7 @@ public class Game{
             System.out.println(Player.actions());
             String input = scan.nextLine();
             if (input.equals("1")){
-                dmg = Player.attack(monster))
+                int dmg = Player.attack(monster))
                 if(dmg == -1){
                     System.out.println("Attack Missed");
                 } else {
