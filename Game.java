@@ -31,22 +31,22 @@ public class Game{
     public void fight(Player player, Monster monster){
         Scanner scan = new Scanner();
         while (true){
-            System.out.println(Player.toString());
-            System.out.println(Monster.toString());
-            System.out.println(Player.actions());
+            System.out.println(player.toString());
+            System.out.println(monster.toString());
+            System.out.println(player.actions());
             String input = scan.nextLine();
             if (input.equals("1")){
-                int dmg = Player.attack(monster))
+                int dmg = player.attack(monster))
                 if(dmg == -1){
                     System.out.println("Attack Missed");
                 } else {
                     System.out.println("You've dealt: " + dmg + " Damage" );
                 }
             } else if (input.equals("2")){
-                boolean heal = Player.heal();
+                boolean heal = player.heal();
                 if (heal == true ){
                     System.out.println("You where healed by: "
-                    +  Player.healingPower);
+                    +  player.healingPower);
                 } else {
                     System.out.println("Healing Failed!");
                 }
@@ -54,9 +54,31 @@ public class Game{
             } else if (input.equals("3")){
 
             } else {
-                System.out.println("Invalid Action")
+                System.out.println("Invalid Action");
+                continue;
+            
             }
-
+            if (monster.isDefeated == true){
+                System.out.println("Monster is Defeated!");
+                break;
+            }
+            //Monster starts here
+            System.out.println(player.toString());
+            System.out.println(monster.toString());
+            
+            int mDmg = monster.attack(player);
+            
+            if (mDmg == -1){
+                System.out.println("Monster Missed!");
+            } else {
+                System.out.println("Monster dealt " + mDmg +" Damage!");
+            }
+            
+            if (player.isDefeated == true) {
+                System.out.println("Player is Defeated!");
+                break;
+            }
+            
         }
 
     }
