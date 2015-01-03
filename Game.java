@@ -59,25 +59,25 @@ public class Game{
 
             } else if (input.equals("3")){
                 System.out.println("Choose your Spell! :");
-                System.out.println("*+*+*+*+*+*+*+* \n
-                                    1 --> Fireball (5 AP) \n
-                                    2 --> Iceball (13 AP) \n
-                                    3 --> Pokéball (19 AP) \n
-                                    Choose NOW !");
+                System.out.println("*+*+*+*+*+*+*+* \n" +
+                                   "1 --> Fireball (5 AP) \n" +
+                                   "2 --> Iceball (13 AP) \n" +
+                                   "3 --> Pokéball (19 AP) \n"+
+                                   "Choose NOW !");
                 String input2 = scan.nextLine();
 
                 if (input2.equals("1")){
                     pDmg = player.cast(1, monster);
                 } else if (input2.equals("2")){
                     pDmg = player.cast(2, monster);
-                } else if (input2.equals("3"){
+                } else if (input2.equals("3")){
                     pDmg = player.cast(3, monster);
                 } else {
                     System.out.println("NOPE, thats not a Spell...");
                 }
 
                 if(pDmg == -1){
-                    System.out.println("Attack Missed");
+                    System.out.println("You have not enough AP!");
                 } else {
                     System.out.println("You've dealt: " + pDmg + " Damage" );
                 }
@@ -90,6 +90,8 @@ public class Game{
                 System.out.println("Monster is Defeated!");
                 break;
             }
+            
+            int apreg = player.regenerateAp();
             //Monster starts here
             System.out.println(player.toString());
             System.out.println(monster.toString());

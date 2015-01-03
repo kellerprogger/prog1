@@ -43,7 +43,7 @@ public class Player{
         if (hitChance <= Math.random()){
             return -1;
         } else {
-            int x = (int) atk * (Math.random() + 1); 
+            int x = (int) (atk *  (Math.random() + 1)); 
             monster.takeDamage(x);
             return x;
         }
@@ -71,7 +71,7 @@ public class Player{
             "--------Spieler-------\n" +
             "HP: "+ hp + "\n" +
             "ATK: "+ atk + "\n" +
-            "AP: "+ ap + "\n" +
+            "AP: "+ ap +  "\n" +
             //"Remaining Items: "+ getRemainingItemUses() + "\n" +
             "----------------------" + "\n";
 
@@ -82,7 +82,8 @@ public class Player{
         if (ap < maxAp){
             return ap;
         } else{
-            return maxAp;
+            ap = maxAp;
+            return ap;
         }
     }
 
@@ -106,8 +107,8 @@ public class Player{
         return
         "Possible Actions: \n" +
         "1 -> Attack \n" +
-        "2 -> Item (" + getRemainingItemUses(); + " remaining) \n" +
+        "2 -> Item (" + getRemainingItemUses() + " remaining) \n" +
         "3 -> Spell \n" +
-        "Which Action ?:" + "\n";
+        "Which Action ?:\n";
     }
 }
