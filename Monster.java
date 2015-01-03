@@ -28,7 +28,7 @@ public class Monster{
         if (hitChance <= Math.random()){
             return -1;
         } else {
-            int x = atk * (int) (Math.random() + 1); 
+            int x = (int) atk * (Math.random() + 1);
             player.takeDamage(x);
             return x;
         }
