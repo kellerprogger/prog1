@@ -25,11 +25,11 @@ public class Monster{
         }
     }
     public int attack(Player player){
-        if (hitchance <= Math.random()){
+        if (hitChance <= Math.random()){
             return -1;
         } else {
-            int x = atk * (int (Math.random() + 1) )
-            monster.takeDamage(x);
+            int x = atk * (int) (Math.random() + 1); 
+            player.takeDamage(x);
             return x;
         }
     }

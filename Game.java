@@ -27,10 +27,10 @@ public class Game{
         else {
             fight(spieler, m5);
         }
-
-    public void fight(Player player, Monster monster){
+    }
+    public static void fight(Player player, Monster monster){
         
-        Scanner scan = new Scanner();
+        Scanner scan = new Scanner(System.in);
         int pDmg;
         int mDmg;
         boolean pHeal;
@@ -42,7 +42,7 @@ public class Game{
             String input = scan.nextLine();
         
             if (input.equals("1")){
-                pDmg = player.attack(monster))
+                pDmg = player.attack(monster);
                 
                 if(pDmg == -1){
                     System.out.println("Attack Missed");
@@ -68,7 +68,7 @@ public class Game{
                 continue;
             
             }
-            if (monster.isDefeated == true){
+            if (monster.isDefeated() == true){
                 System.out.println("Monster is Defeated!");
                 break;
             }
@@ -84,13 +84,10 @@ public class Game{
                 System.out.println("Monster dealt " + mDmg +" Damage!");
             }
             
-            if (player.isDefeated == true) {
+            if (player.isDefeated() == true) {
                 System.out.println("Player is Defeated!");
                 break;
-            }
-            
+            }   
         }
-
     }
-
 }

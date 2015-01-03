@@ -40,10 +40,10 @@ public class Player{
     }
 
     public int attack(Monster monster){
-        if (hitchance <= Math.random()){
+        if (hitChance <= Math.random()){
             return -1;
         } else {
-            int x = atk * (int (Math.random() + 1) )
+            int x = atk * (int) (Math.random() + 1); 
             monster.takeDamage(x);
             return x;
         }
@@ -72,7 +72,7 @@ public class Player{
             "HP: "+ hp + "\n" +
             "ATK: "+ atk + "\n" +
             "AP: "+ ap + "\n" +
-            "Remaining Items: "+ getRemainingItemUses()) + "\n" +
+            "Remaining Items: "+ getRemainingItemUses() + "\n" +
             "----------------------" + "\n";
 
     }
@@ -87,8 +87,8 @@ public class Player{
     }
 
     public int cast(int spell, Monster monster){
-        int dmg;
-        int cost;
+        int dmg = -1;
+        int cost = -1;
         switch (spell){
             case 1: dmg = 10; cost = 5;
             case 2: dmg = 20; cost = 13;
@@ -103,11 +103,11 @@ public class Player{
         }
     }
     public String actions(){
-        return
-        "Moegliche Aktionen: \n" +
-        "1 -> Attack \n" +
-        "2 -> Item (" + getRemainingItemUses(); + " remaining) \n" +
-        "3 -> Spell" +
+        return 
+       // "Moegliche Aktionen: \n" +
+       // "1 -> Attack \n" +
+       // "2 -> Item (" + getRemainingItemUses(); + " remaining) \n" +
+       // "3 -> Spell \n" + 
         "Welche Aktion?:\n";
     }
 }
