@@ -1,3 +1,8 @@
+/**
+    Monster Klasse nach spezifikationen
+    @author Tyrfingr
+    @version 2.0.2
+*/
 public class Monster{
     int maxHp;
     int hp;

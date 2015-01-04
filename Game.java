@@ -1,9 +1,14 @@
+/**
+    Hier befindet sich das Spiel
+    @author Tyrfingr
+    @version 2.0.2
+*/
 import java.util.Scanner;
 public class Game{
     public static void main(String [] döner){
 
         Player spieler = new Player(100, 50, 42, 4, 0.5, 20, 3);
-
+        // 5 Verschiedene Monster werden erstellt
         Monster m1 = new Monster(100, 30, 0.4);
         Monster m2 = new Monster(120, 10, 0.3);
         Monster m3 = new Monster(420, 7, 0.6);
@@ -11,7 +16,7 @@ public class Game{
         Monster m4 = new Monster(666, 40, 0.01);
 
         double rand = Math.random();
-
+        //Monster wird ausgewählt
         if (rand < 0.2){
             fight(spieler, m1);
         } else if (rand < 0.4){
@@ -24,6 +29,9 @@ public class Game{
             fight(spieler, m5);
         }
     }
+    /**
+    Hier werden die Methoden für das Spiel aufgerufen:
+    */
     public static void fight(Player player, Monster monster){
 
         Scanner scan = new Scanner(System.in);
@@ -36,7 +44,7 @@ public class Game{
             System.out.println(monster.toString());
             System.out.println(player.actions());
             String input = scan.nextLine();
-
+            // Eingabe des Spielers wird ausgewertet
             if (input.equals("1")){
                 pDmg = player.attack(monster);
 
@@ -49,7 +57,7 @@ public class Game{
             } else if (input.equals("2")){
 
                 pHeal = player.heal();
-                
+
                 if (pHeal == true ){
                     System.out.println("You where healed by: "
                     +  player.healingPower);
@@ -90,11 +98,8 @@ public class Game{
                 System.out.println("Monster is Defeated!");
                 break;
             }
-            
-            int apreg = player.regenerateAp();
+
             //Monster starts here
-            System.out.println(player.toString());
-            System.out.println(monster.toString());
 
             mDmg = monster.attack(player);
 

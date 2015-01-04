@@ -1,3 +1,8 @@
+/**
+    Spielerklasse nach Spezifikationen
+    @author Tyrfingr
+    @version 2.0.2
+*/
 public class Player{
     int maxHp;
     int hp;
@@ -43,7 +48,7 @@ public class Player{
         if (hitChance <= Math.random()){
             return -1;
         } else {
-            int x = (int) (atk *  (Math.random() + 1)); 
+            int x = (int) (atk *  (Math.random() + 1));
             monster.takeDamage(x);
             return x;
         }
@@ -72,18 +77,20 @@ public class Player{
             "HP: "+ hp + "\n" +
             "ATK: "+ atk + "\n" +
             "AP: "+ ap +  "\n" +
+            "AP regenerated in last Round: " + regenerateAp() + "\n" +
             //"Remaining Items: "+ getRemainingItemUses() + "\n" +
             "----------------------" + "\n";
 
     }
 
     public int regenerateAp(){
+        int apOld = ap;
         ap += apRegen;
         if (ap < maxAp){
-            return ap;
+            return ap - apOld;
         } else{
             ap = maxAp;
-            return ap;
+            return ap - apOld;
         }
     }
 
