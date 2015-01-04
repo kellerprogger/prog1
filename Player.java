@@ -1,9 +1,9 @@
 /**
     Spielerklasse nach Spezifikationen
-    @author Tyrfingr
+    @author Tyrfing
     @version 2.0.2
 */
-public class Player{
+public class Player {
     int maxHp;
     int hp;
     int atk;
@@ -16,7 +16,7 @@ public class Player{
 
 
     public Player(int maxHp, int atk, int healingPower, int remainingItemUses,
-                    double hitChance, int maxAp, int apRegen){
+                    double hitChance, int maxAp, int apRegen) {
         this.maxHp = maxHp;
         this.atk = atk;
         this.healingPower = healingPower;
@@ -28,8 +28,8 @@ public class Player{
         ap = maxAp;
     }
 
-    public boolean isDefeated(){
-        if(hp == 0){
+    public boolean isDefeated() {
+        if(hp == 0) {
             return true;
         }
         else {
@@ -37,15 +37,15 @@ public class Player{
         }
     }
 
-    public void takeDamage(int damage){
+    public void takeDamage(int damage) {
         hp -= damage;
-        if (hp < 0){
+        if (hp < 0) {
             hp = 0;
         }
     }
 
-    public int attack(Monster monster){
-        if (hitChance <= Math.random()){
+    public int attack(Monster monster) {
+        if (hitChance <= Math.random()) {
             return -1;
         } else {
             int x = (int) (atk *  (Math.random() + 1));
@@ -54,15 +54,15 @@ public class Player{
         }
     }
 
-    public int getRemainingItemUses(){
+    public int getRemainingItemUses() {
         return remainingItemUses;
     }
 
-    public boolean heal(){
-        if (remainingItemUses > 0){
+    public boolean heal() {
+        if (remainingItemUses > 0) {
             remainingItemUses -= 1;
             hp += healingPower;
-            if (hp > maxHp){
+            if (hp > maxHp) {
                 hp = maxHp;
             }
             return true;
@@ -71,7 +71,7 @@ public class Player{
         }
     }
 
-    public String toString(){
+    public String toString() {
         return
             "--------Spieler-------\n" +
             "HP: "+ hp + "\n" +
@@ -83,26 +83,26 @@ public class Player{
 
     }
 
-    public int regenerateAp(){
+    public int regenerateAp() {
         int apOld = ap;
         ap += apRegen;
-        if (ap < maxAp){
+        if (ap < maxAp) {
             return ap - apOld;
-        } else{
+        } else {
             ap = maxAp;
             return ap - apOld;
         }
     }
 
-    public int cast(int spell, Monster monster){
+    public int cast(int spell, Monster monster) {
         int dmg = -1;
         int cost = -1;
-        switch (spell){
-            case 1: dmg = 10; cost = 5;
-            case 2: dmg = 20; cost = 13;
-            case 3: dmg = 30; cost = 19;
+        switch (spell) {
+        case 1: dmg = 10; cost = 5;
+        case 2: dmg = 20; cost = 13;
+        case 3: dmg = 30; cost = 19;
         }
-        if (ap >= cost){
+        if (ap >= cost) {
             monster.takeDamage(dmg);
             ap -= cost;
             return dmg;
@@ -110,7 +110,7 @@ public class Player{
             return -1;
         }
     }
-    public String actions(){
+    public String actions() {
         return
         "Possible Actions: \n" +
         "1 -> Attack \n" +

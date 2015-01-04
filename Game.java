@@ -1,11 +1,11 @@
 /**
     Hier befindet sich das Spiel
-    @author Tyrfingr
+    @author Tyrfing
     @version 2.0.2
 */
 import java.util.Scanner;
-public class Game{
-    public static void main(String [] döner){
+public class Game {
+    public static void main(String [] doener) {
 
         Player spieler = new Player(100, 50, 42, 4, 0.5, 20, 3);
         // 5 Verschiedene Monster werden erstellt
@@ -17,13 +17,13 @@ public class Game{
 
         double rand = Math.random();
         //Monster wird ausgewählt
-        if (rand < 0.2){
+        if (rand < 0.2) {
             fight(spieler, m1);
-        } else if (rand < 0.4){
+        } else if (rand < 0.4) {
             fight(spieler, m2);
-        } else if (rand < 0.6){
+        } else if (rand < 0.6) {
             fight(spieler, m3);
-        } else if (rand < 0.8){
+        } else if (rand < 0.8) {
             fight(spieler, m4);
         } else {
             fight(spieler, m5);
@@ -32,40 +32,40 @@ public class Game{
     /**
     Hier werden die Methoden für das Spiel aufgerufen:
     */
-    public static void fight(Player player, Monster monster){
+    public static void fight(Player player, Monster monster) {
 
         Scanner scan = new Scanner(System.in);
         int pDmg = 0;
         int mDmg;
         boolean pHeal;
 
-        while (true){
+        while (true) {
             System.out.println(player.toString());
             System.out.println(monster.toString());
             System.out.println(player.actions());
             String input = scan.nextLine();
             // Eingabe des Spielers wird ausgewertet
-            if (input.equals("1")){
+            if (input.equals("1")) {
                 pDmg = player.attack(monster);
 
-                if(pDmg == -1){
+                if(pDmg == -1) {
                     System.out.println("Attack Missed");
                 } else {
                     System.out.println("You've dealt: " + pDmg + " Damage" );
                 }
 
-            } else if (input.equals("2")){
+            } else if (input.equals("2")) {
 
                 pHeal = player.heal();
 
-                if (pHeal == true ){
+                if (pHeal == true ) {
                     System.out.println("You where healed by: "
-                    +  player.healingPower);
+                    + player.healingPower);
                 } else {
                     System.out.println("Healing Failed!");
                 }
 
-            } else if (input.equals("3")){
+            } else if (input.equals("3")) {
                 System.out.println("Choose your Spell! :");
                 System.out.println("*+*+*+*+*+*+*+* \n" +
                                    "1 --> Fireball (5 AP) \n" +
@@ -74,11 +74,11 @@ public class Game{
                                    "Choose NOW !");
                 String input2 = scan.nextLine();
 
-                if (input2.equals("1")){
+                if (input2.equals("1")) {
                     pDmg = player.cast(1, monster);
-                } else if (input2.equals("2")){
+                } else if (input2.equals("2")) {
                     pDmg = player.cast(2, monster);
-                } else if (input2.equals("3")){
+                } else if (input2.equals("3")) {
                     pDmg = player.cast(3, monster);
                 } else {
                     System.out.println("NOPE, thats not a Spell...");
@@ -94,7 +94,7 @@ public class Game{
                 System.out.println("Invalid Action");
                 continue;
             }
-            if (monster.isDefeated() == true){
+            if (monster.isDefeated() == true) {
                 System.out.println("Monster is Defeated!");
                 break;
             }
