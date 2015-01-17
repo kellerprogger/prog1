@@ -1,9 +1,9 @@
 default:
-	javac Game.java
+	javac Crawler.java
 clean:
 	$(RM) *.class
 run:
-	javac Game.java
-	java Game
+	javac Crawler.java
+	java Crawler
 play:
-	java Game 
+	java Crawler
