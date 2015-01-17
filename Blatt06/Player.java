@@ -22,17 +22,6 @@ public class Player extends Entity{
         ap = maxAp;
     }
 
-
-    public int attack(Monster monster) {
-        if (hitChance <= Math.random()) {
-            return -1;
-        } else {
-            int x = (int) (atk *  (Math.random() + 1));
-            monster.takeDamage(x);
-            return x;
-        }
-    }
-
     public int getRemainingItemUses() {
         return remainingItemUses;
     }

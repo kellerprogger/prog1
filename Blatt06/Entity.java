@@ -25,6 +25,14 @@ public class Entity{
             hp = 0;
         }
     }
-
+    public int attack(Entity entity) {
+        if (hitChance <= Math.random()) {
+            return -1;
+        } else {
+            int x = (int) (atk *  (Math.random() + 1));
+            monster.takeDamage(x);
+            return x;
+        }
+    }
 
 }
