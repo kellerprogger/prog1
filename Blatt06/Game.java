@@ -7,13 +7,13 @@ import java.util.Scanner;
 public class Game {
     public static void main(String [] doener) {
 
-        Player spieler = new Player(100, 50, 42, 4, 0.5, 20, 3);
+        Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3);
         // 5 Verschiedene Monster werden erstellt
-        Monster m1 = new Monster(100, 30, 0.4);
-        Monster m2 = new Monster(120, 10, 0.3);
-        Monster m3 = new Monster(420, 7, 0.6);
-        Monster m5 = new Monster(123, 10, 0.11);
-        Monster m4 = new Monster(666, 40, 0.01);
+        Monster m1 = new Monster1(100, 30, 0.4);
+        Monster m2 = new Monster1(120, 10, 0.3);
+        Monster m3 = new Monster1(420, 7, 0.6);
+        Monster m5 = new Monster1(123, 10, 0.5);
+        Monster m4 = new Monster1(666, 40, 0.5);
 
         double rand = Math.random();
         //Monster wird ausgewählt

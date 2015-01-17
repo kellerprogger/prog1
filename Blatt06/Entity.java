@@ -19,19 +19,21 @@ public class Entity{
         }
     }
 
-    public void takeDamage(int damage) {
+    public int  takeDamage(int damage) {
         hp -= damage;
         if (hp < 0){
             hp = 0;
         }
-    }
+        return damage;
+    } 
+
     public int attack(Entity entity) {
         if (hitChance <= Math.random()) {
             return -1;
         } else {
             int x = (int) (atk *  (Math.random() + 1));
-            monster.takeDamage(x);
-            return x;
+            int realDamageTaken = entity.takeDamage(x);
+            return realDamageTaken;
         }
     }
 
