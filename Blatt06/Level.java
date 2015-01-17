@@ -9,7 +9,7 @@ public class Level {
     {"#","#","#","#","#","#","#"}
     };
     int[] playerPosition;
-    char newMapData;
+    char[][] newMapData;
     public Level(char[][] mapData){
         this.mapData = mapData;
     }
@@ -37,7 +37,19 @@ public class Level {
         playerPosition = new PlayerPosition;
 
     }
-
+    public  Action(int[] pos){
+        if (newMapData[pos[0]][pos[1]].equals("B")){
+            Battle();
+        } else if (newMapData[pos[0]][pos[1]].equals("O")){
+            Well();
+        } else if (newMapData[pos[0]][pos[1]].equals("T")){
+            Forge();
+        } else if (newMapData[pos[0]][pos[1]].equals("Z")){
+            Finish();
+        } else{
+            throw new IllegalArgumentException("Invalid Case");
+        }
+    }
     public boolean Movement(String dest){
         int[] newPos = playerPosition;
 
@@ -52,11 +64,12 @@ public class Level {
         } else{
             return false;
         }
-        if (mapData[y][x].equals("#")){
+        if (mapData[newPos[0]][newPos[1]].equals("#")){
             return false;
         } else {
             SetPlayerPosition(newPos)
             return true;
         }
     }
+
 }
