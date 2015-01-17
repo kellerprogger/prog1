@@ -1,7 +1,6 @@
 prog1
 =====
-Hausaufgabe Nr. 5
+Hausaufgaben für Progammieren 1
 
-Version 2.0.2
+Game Version: 3.0.0
 
-Klassen alle nach Spezifikationen in der pdf.
