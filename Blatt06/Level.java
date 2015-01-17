@@ -1,15 +1,22 @@
 import java.util.Scanner;
 public class Level {
-    final char[][] mapData = {
+    final char[][] mapData;
+    int[] playerPosition;
+    char[][] newMapData;
+
+    public static void main (String[] args){
+    char[][] map = {
     {"#","#","#","#","#","#","#"},
     {"#","S","B",".","T",".","#"},
     {"#",".","#","#","#","O","#"},
     {"#","B","O","#","#",".","#"},
     {"#",".",".","B","Z","T","#"},
-    {"#","#","#","#","#","#","#"}
+    {"#","#","#","#","#","#","#"},
     };
-    int[] playerPosition;
-    char[][] newMapData;
+    System.out.println(map);
+    Level();
+    }
+
     public Level(char[][] mapData){
         this.mapData = mapData;
     }
@@ -20,7 +27,7 @@ public class Level {
         System.out.println(mapData)
     }
 
-    public int[] GetPostionOfObject(char po){
+    public int[] getPostionOfObject(char po){
         int[] objectPosition;
         for (int y = 0 ; mapData.length() < y ; y++){
             for (int x = 0; mapData[x].length() < x; x++){
@@ -33,11 +40,11 @@ public class Level {
         return objectPosition;
     }
 
-    public void SetPlayerPosition(int[] newPlayerPosition){
-        playerPosition = new PlayerPosition;
+    public void setPlayerPosition(int[] newPlayerPosition){
+        playerPosition = new playerPosition;
 
     }
-    public  Action(int[] pos){
+    public action(int[] pos){
         if (newMapData[pos[0]][pos[1]].equals("B")){
             Battle();
         } else if (newMapData[pos[0]][pos[1]].equals("O")){
@@ -50,7 +57,7 @@ public class Level {
             throw new IllegalArgumentException("Invalid Case");
         }
     }
-    public boolean Movement(String dest){
+    public boolean movement(String dest){
         int[] newPos = playerPosition;
 
         if (dest.equals("N")){
@@ -67,7 +74,7 @@ public class Level {
         if (mapData[newPos[0]][newPos[1]].equals("#")){
             return false;
         } else {
-            SetPlayerPosition(newPos)
+            setPlayerPosition(newPos)
             return true;
         }
     }

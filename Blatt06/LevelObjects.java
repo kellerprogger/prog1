@@ -3,16 +3,16 @@ public class LevelObjects{
     public LevelObjects(){
 
     }
-    public boolean Battle(){
+    public boolean battle(){
 
     }
-    public void Well(){
+    public void well(){
 
     }
-    public void  Forge(){
+    public void  forge(){
 
     }
-    public void Finish(){
+    public void finish(){
 
     }
 }
