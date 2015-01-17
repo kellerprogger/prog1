@@ -9,11 +9,11 @@ public class Game {
 
         Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3);
         // 5 Verschiedene Monster werden erstellt
-        Monster m1 = new Monster1(100, 30, 0.4);
-        Monster m2 = new Monster1(120, 10, 0.3);
-        Monster m3 = new Monster1(420, 7, 0.6);
-        Monster m5 = new Monster1(123, 10, 0.5);
-        Monster m4 = new Monster1(666, 40, 0.5);
+        Monster m1 = new Monster(200, 20, 0.5, "Typ0");
+        Monster m2 = new Monster1(200, 20, 0.5, "Typ1");
+        Monster m3 = new Monster2(200, 20, 0.5, "Typ2");
+        Monster m5 = new Monster1(200, 20, 0.5, "Typ1");
+        Monster m4 = new Monster2(200, 20, 0.5, "Typ2");
 
         double rand = Math.random();
         //Monster wird ausgewählt

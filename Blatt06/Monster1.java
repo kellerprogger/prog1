@@ -1,6 +1,6 @@
 public class Monster1 extends Monster{
-    public Monster1(int maxHp, int atk, double hitChance) {
-        super(maxHp, atk, hitChance);
+    public Monster1(int maxHp, int atk, double hitChance, String name) {
+        super(maxHp, atk, hitChance, name);
     }
     public int attack(Player player) {
         double rnd = Math.random();

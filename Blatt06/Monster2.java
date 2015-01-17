@@ -1,6 +1,6 @@
 public class Monster2 extends Monster{
-    public Monster2(int maxHp, int atk, double hitChance) {
-        super(maxHp, atk, hitChance);
+    public Monster2(int maxHp, int atk, double hitChance, String name) {
+        super(maxHp, atk, hitChance, name);
     }
 
     public int  takeDamage(int damage) {

@@ -31,8 +31,10 @@ public class Entity{
         if (hitChance <= Math.random()) {
             return -1;
         } else {
+            
             int x = (int) (atk *  (Math.random() + 1));
             int realDamageTaken = entity.takeDamage(x);
+            //System.out.println("Debug Message: " + "Dmg: " + x +" RealDmg: " + realDamageTaken);
             return realDamageTaken;
         }
     }
