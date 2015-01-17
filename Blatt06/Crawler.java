@@ -1,22 +1,35 @@
+import java.util.Scanner;
 public class Crawler{
     public static void main (String[]args){
-        char [][]mapData = {
+        Scanner scan = new Scanner(System.in);
+        char [][]mapData0 = {
         {'#','#','#','#','#','#','#'},
         {'#','Z','.','#','S','O','#'},
-        {'#','#','.','#','.','#','#'},
-        {'#','.','B','#','T','#','#'},
-        {'#','.','.','#','.','.','#'},
+        {'#','#','.','.','.','#','#'},
+        {'#','.','B','.','T','#','#'},
+        {'#','.','.','.','.','.','#'},
         {'#','#','.','.','B','#','#'},
         {'#','#','#','#','#','#','#'}
-        };
+        }; 
         
-        Level m  = new Level(mapData);
-        m.printer(mapData);
-        m.setPlayerMapPosition(4,1); // Format x,y 
+
+        Level m  = new Level( mapData0);
+        m.setPlayerPosition(1,1);
+        m.playerMapPosition(); 
         
-        //System.out.println(mapData[0][1]);
-    
+        while (true){
+            System.out.println(m.movement()); 
+            String input = scan.nextLine();
+            if (m.move(input)){
+                System.out.println("Movement Succesfull");
+                m.playerMapPosition();
+            } else {
+                System.out.println("Movement Failed");
+                continue;
+            }
+        
+        }    
     }
-  }
+}
 
 
