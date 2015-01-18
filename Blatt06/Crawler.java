@@ -12,18 +12,19 @@ public class Crawler{
         {'#','#','#','#','#','#','#'}
         }; 
         
-
         Level m  = new Level( mapData0);
         m.setPlayerPosition(1,1);
-        m.playerMapPosition(); 
+        
         
         while (true){
+            m.playerMapPosition(); 
             System.out.println(m.movement()); 
             String input = scan.nextLine();
             if (m.move(input)){
                 System.out.println("Movement Succesfull");
-                m.playerMapPosition();
-                m.possibleActions();
+                 if(m.possibleActions() == false){
+                    break;
+                 }
             } else {
                 System.out.println("Movement Failed");
                 continue;

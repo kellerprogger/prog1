@@ -5,9 +5,9 @@
 */
 import java.util.Scanner;
 public class Game {
-    public static void main(String [] doener) {
-
-        Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3);
+        
+    public boolean createMonsterFight(Player spieler){
+        boolean result;
         // 5 Verschiedene Monster werden erstellt
         Monster m1 = new Monster(200, 20, 0.5, "Typ0");
         Monster m2 = new Monster1(200, 20, 0.5, "Typ1");
@@ -18,21 +18,23 @@ public class Game {
         double rand = Math.random();
         //Monster wird ausgewählt
         if (rand < 0.2) {
-            fight(spieler, m1);
+            result = fight(spieler, m1);
         } else if (rand < 0.4) {
-            fight(spieler, m2);
+            result = fight(spieler, m2);
         } else if (rand < 0.6) {
-            fight(spieler, m3);
+            result = fight(spieler, m3);
         } else if (rand < 0.8) {
-            fight(spieler, m4);
+            result = fight (spieler, m4);
         } else {
-            fight(spieler, m5);
-        }
+            result = fight(spieler, m5);
+        } 
+        return result;
     }
     /**
     Hier werden die Methoden für das Spiel aufgerufen:
     */
-    public static void fight(Player player, Monster monster) {
+
+    private static boolean fight(Player player, Monster monster) {
 
         Scanner scan = new Scanner(System.in);
         int pDmg = 0;
@@ -96,7 +98,7 @@ public class Game {
             }
             if (monster.isDefeated() == true) {
                 System.out.println("Monster is Defeated!");
-                break;
+                return true;
             }
 
             //Monster starts here
@@ -111,7 +113,7 @@ public class Game {
 
             if (player.isDefeated() == true) {
                 System.out.println("Player is Defeated!");
-                break;
+                return false;
             }
         }
     }

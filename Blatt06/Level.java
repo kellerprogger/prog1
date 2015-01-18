@@ -3,7 +3,7 @@ public class Level{
     char[][] map;
     int[]playerPosition = {0,0};
     boolean[] d = {false,false,false,false}; // 0==N,1==S,2==W,3==E
-    
+    Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3); 
     public Level(char[][] mapData){
         this.mapData = mapData;
         this.map = deepCopy(mapData);
@@ -48,20 +48,19 @@ public class Level{
         String way  = "You can go: ";
 
         if (mapData[y - 1][x] != '#'){
-         way += "North";
+         way += "North(n)";
          d[0] = true;
 
         } if (mapData[y + 1][x] != '#'){
-         way += " South";
+         way += " South(s)";
          d[1] = true;
 
         } if (mapData[y][x - 1] != '#'){
-         way += " West";
+         way += " West(w)";
          d[2] = true;
-         System.out.println("Test");
-
+         
         } if (mapData[y][x + 1] !=  '#') {
-         way += " East";
+         way += " East(e)";
          d[3] = true;
 
         } 
@@ -94,21 +93,32 @@ public class Level{
         playerPosition[0] = x;
         playerPosition[1] = y;
     }
-    public void possibleActions(){
+    public boolean possibleActions(){
         int x = playerPosition[0];
         int y = playerPosition[1];
+        
         if (mapData[y][x] == 'B'){
             System.out.println("Battle");
+            Game g = new Game();
+            return g.createMonsterFight(spieler);
+
         } else if (mapData[y][x] == 'T'){
             System.out.println("Forge");
+            return true;
+        
         } else if (mapData[y][x] == 'O'){
             System.out.println("Well");
+            return true;
+        
         } else if (mapData[y][x] == 'Z'){
-            System.out.println("Ziel");
+            System.out.println("You have Won the Game");
+            return false;
+        
         } else {
             System.out.println("NICHTS");
+            return true;
         }
-        //return true;
     }
+   
 }
 
