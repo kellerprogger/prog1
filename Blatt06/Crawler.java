@@ -23,6 +23,7 @@ public class Crawler{
             if (m.move(input)){
                 System.out.println("Movement Succesfull");
                 m.playerMapPosition();
+                m.possibleActions();
             } else {
                 System.out.println("Movement Failed");
                 continue;

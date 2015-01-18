@@ -1,4 +1,3 @@
-import java.util.Arrays;
 public class Level{
     char[][] mapData;
     char[][] map;
@@ -7,7 +6,7 @@ public class Level{
     
     public Level(char[][] mapData){
         this.mapData = mapData;
-        this.map = mapData;
+        this.map = deepCopy(mapData);
     }
     
     public void printer(char[][]map){
@@ -21,8 +20,17 @@ public class Level{
             }
         }
     }
+    public char[][] deepCopy(char[][] map){
+        char[][] copy = new char[map.length][map[0].length];
+        for (int y = 0; y < map.length; y++){
+            for (int x = 0; x < map[y].length; x++){
+                copy[y][x] = map[y][x];
+            }
+        }
+        return copy;
+    }
     public void playerMapPosition(){
-        
+        map = deepCopy(mapData); 
         int x = playerPosition[0];
         int y = playerPosition[1];
         map[y][x] = 'P';
@@ -85,6 +93,22 @@ public class Level{
     public void setPlayerPosition(int x, int y){
         playerPosition[0] = x;
         playerPosition[1] = y;
+    }
+    public void possibleActions(){
+        int x = playerPosition[0];
+        int y = playerPosition[1];
+        if (mapData[y][x] == 'B'){
+            System.out.println("Battle");
+        } else if (mapData[y][x] == 'T'){
+            System.out.println("Forge");
+        } else if (mapData[y][x] == 'O'){
+            System.out.println("Well");
+        } else if (mapData[y][x] == 'Z'){
+            System.out.println("Ziel");
+        } else {
+            System.out.println("NICHTS");
+        }
+        //return true;
     }
 }
 
