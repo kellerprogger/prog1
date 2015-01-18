@@ -3,7 +3,12 @@ public class Level{
     char[][] map;
     int[]playerPosition = {0,0};
     boolean[] d = {false,false,false,false}; // 0==N,1==S,2==W,3==E
+    boolean[][] usedField = new boolean [999][999]; //MAX FIELD SIZE
     Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3); 
+    
+    
+    
+    
     public Level(char[][] mapData){
         this.mapData = mapData;
         this.map = deepCopy(mapData);
@@ -94,21 +99,30 @@ public class Level{
         playerPosition[1] = y;
     }
     public boolean possibleActions(){
+        //test();
         int x = playerPosition[0];
         int y = playerPosition[1];
-        
-        if (mapData[y][x] == 'B'){
+        if(usedField[x][y] == true ){
+            System.out.println("I think you already know this Place...");
+            return true;
+
+        }else if (mapData[y][x] == 'B'){
             System.out.println("Battle");
             Game g = new Game();
+            usedField[x][y] = true;
+
             return g.createMonsterFight(spieler);
 
         } else if (mapData[y][x] == 'T'){
             System.out.println("Forge");
+            forge();
+            usedField[x][y] = true;
             return true;
         
         } else if (mapData[y][x] == 'O'){
             System.out.println("Well");
-            well(x,y);
+            well();
+            usedField[x][y] = true;
             return true;
         
         } else if (mapData[y][x] == 'Z'){
@@ -120,12 +134,25 @@ public class Level{
             return true;
         }
     }
-    public void well(int x, int y){
+    public void well(){
         spieler.hp = spieler.maxHp;
         spieler.ap = spieler.maxAp;
         System.out.println("You Hp and Ap refreshed");
 
     }
-   
+    public void forge(){
+        spieler.ap += 5;
+        spieler.atk += 10;
+        System.out.println("You got 10ATK and 5 AP");
+    }
+   /* public void test(){
+        System.out.println("ATK: " + spieler.atk);
+        System.out.println("MAXPHP: " + spieler.maxHp);
+        System.out.println("HP: " + spieler.hp);
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+    }*/
 }
 
