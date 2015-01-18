@@ -113,13 +113,13 @@ public class Level{
 
             return g.createMonsterFight(spieler);
 
-        } else if (mapData[y][x] == 'T'){
+        } else if (mapData[y][x] == 'F'){
             System.out.println("Forge");
             forge();
             usedField[x][y] = true;
             return true;
         
-        } else if (mapData[y][x] == 'O'){
+        } else if (mapData[y][x] == 'W'){
             System.out.println("Well");
             well();
             usedField[x][y] = true;
@@ -137,13 +137,12 @@ public class Level{
     public void well(){
         spieler.hp = spieler.maxHp;
         spieler.ap = spieler.maxAp;
-        System.out.println("You Hp and Ap refreshed");
+        System.out.println("You Hp and Ap are refreshed");
 
     }
     public void forge(){
-        spieler.ap += 5;
         spieler.atk += 10;
-        System.out.println("You got 10ATK and 5 AP");
+        System.out.println("You got 10ATK");
     }
    /* public void test(){
         System.out.println("ATK: " + spieler.atk);
