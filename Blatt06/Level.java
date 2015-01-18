@@ -108,6 +108,7 @@ public class Level{
         
         } else if (mapData[y][x] == 'O'){
             System.out.println("Well");
+            well(x,y);
             return true;
         
         } else if (mapData[y][x] == 'Z'){
@@ -115,9 +116,15 @@ public class Level{
             return false;
         
         } else {
-            System.out.println("NICHTS");
+            System.out.println("Nothing Happend .. -.. .. --- -");
             return true;
         }
+    }
+    public void well(int x, int y){
+        spieler.hp = spieler.maxHp;
+        spieler.ap = spieler.maxAp;
+        System.out.println("You Hp and Ap refreshed");
+
     }
    
 }
