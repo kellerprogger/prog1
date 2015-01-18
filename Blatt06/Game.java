@@ -61,7 +61,7 @@ public class Game {
                 pHeal = player.heal();
 
                 if (pHeal == true ) {
-                    System.out.println("You where healed by: "
+                    System.out.println("You were healed by: "
                     + player.healingPower);
                 } else {
                     System.out.println("Healing Failed!");
