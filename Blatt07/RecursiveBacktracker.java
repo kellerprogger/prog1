@@ -1,37 +1,62 @@
 public class RecursiveBacktracker implements MazeGenerator {
 
-//    TODO WRITE CONSTRUCTOR !!!!
     int ySize;
     int xSize;
-    
-   // public RecursiveBacktracker(int ySize, int xSize){
-     //   this.ySize = ySize;
-       // this.xSize = xSize;
-
+    boolean[][] visitedField; //= new boolean[ySize][xSize];
+    char[][] map;
     
 
-    boolean[][] visitedField = new boolean[ySize][xSize];
-    char[][] map = new char[ySize][xSize];
-    
-    public char[][] generate(int ySize, int xSize){
+    RecursiveBacktracker(int ySize, int xSize){
         this.ySize = ySize;
         this.xSize = xSize;
+        this.visitedField = new boolean[ySize][xSize];
+        this.map = new char[ySize][xSize];
+    }
+           
+    
+
+       public char[][] generate(int yStart, int xStart){ // wants players start position
+              
         if ( ySize % 2 == 1 && xSize % 2 == 1){
             for (int i = 0; i < ySize; i++){
                 for (int j = 0; j < xSize; j += 1){
-                    if ( j % 2 == 0 || i == 0 || i == ySize - 1 || i % 2 == 0){
+                    if ( j % 2 == 0 || i == 0 || i == xSize - 1 || i % 2 == 0){
                         map[i][j] = WALL;
+                       
                     } else {
-                        map[i][j] = FREE;
+                        int rand = random();
+                        
+                        if (rand == 1 && j % 2 == 1){
+                            map[i][j] = BATTLE;
+                        } else if(rand == 2 && j % 3 == 0) {
+                            map[i][j] = FORGE;
+                        } else if (rand == 3 && i % 3 == 1) {
+                            map[i][j] = WELL;
+                        } else{
+                            map[i][j] = FREE;
+                        }
                     }
                 }    
-            }               
+            }             
+            map[yStart][xStart] = START; //Sets Start
+            //TODO FIX FINISH 
+            try{
+                int yTarget = 1 + ( yStart * random()) % ySize ;
+                int xTarget = 1 + ( xStart * random()) % xSize ;
+                map[yTarget][xTarget] = GOAL ;
 
-        } else{
-            System.out.println("Upppsi");
+            }catch(ArrayIndexOutOfBoundsException e){
+                int yTarget = ySize - 2;
+                int xTarget = xSize - 2;
+                map[yTarget][xTarget] = GOAL ;
+            }
+
+        
+         } else{
+            System.out.println("FAIL :'( \uD83D\uDCA9 ");
         }
 
-        System.out.println(generator(3,3));
+        System.out.println(generator(xStart, yStart));
         return map;
     }
      
@@ -67,12 +92,12 @@ public class RecursiveBacktracker implements MazeGenerator {
 
         }
         //System.out.println(orient[0] +" "+orient[1]+" "+orient[2]+" "+orient[3]); 
-        if (orient[0] || orient[1]|| orient[2]  || orient[3]){
+        if (orient[0] || orient[1]|| orient[2]  || orient[3]){ //if one orient true..
             
             return orient;
     
         } else {
-            orient[4] = true; 
+            orient[4] = true; // 4 means 
             return orient;
 
         }

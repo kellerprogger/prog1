@@ -2,25 +2,18 @@ import java.util.Scanner;
 public class Crawler{
     public static void main (String[]args){
         Scanner scan = new Scanner(System.in);
+        //Player Position
+        int x = 1;
+        int y = 1;
+        //TODO ADD USER INPUT  
+            
         
-        /*char [][]mapData0 = {
-        {'#','#','#','#','#','#','#'},
-        {'#','S','.','#','B','F','#'},
-        {'#','#','B','.','.','#','#'},
-        {'#','#','.','#','W','#','#'},
-        {'#','.','W','B','#','#','#'},
-        {'#','#','.','.','.','Z','#'},
-        {'#','.','B','.','F','#','#'},
-        {'#','.','.','.','.','.','#'},
-        {'#','#','.','.','#','#','#'},
-        {'#','#','#','#','#','#','#'}
-        }; */ 
-        
-        MazeGenerator gen = new RecursiveBacktracker();
-        char[][] mapData = gen.generate(33,33);
+    
+        MazeGenerator gen = new RecursiveBacktracker(3,33);
+        char[][] mapData = gen.generate(x,y);
         
         Level m  = new Level(mapData);
-        m.setPlayerPosition(3,3);
+        m.setPlayerPosition(y,x);
          
         
         while (true){
@@ -33,7 +26,7 @@ public class Crawler{
                     break;
                  }
             } else {
-                System.out.println("Movement Failed");
+                System.out.println("Movement Failed \uD83D\uDCA9");
                 continue;
             }
         
