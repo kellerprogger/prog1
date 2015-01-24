@@ -1,9 +1,15 @@
 public class RecursiveBacktracker implements MazeGenerator {
     
-    char[][] map = {{'#','#','#','#','#','#','#','#','#'},
+    char[][] map = {{'0','1','2','3','4','5','6','7','8'},
+                    {'#','#','#','#','#','#','#','#','#'},
                     {'#',' ','#',' ','#',' ','#',' ','#'},
                     {'#','#','#','#','#','#','#','#','#'},
                     {'#',' ','#',' ','#',' ','#',' ','#'},
+                    {'#','#','#','#','#','#','#','#','#'},
+                    {'#',' ','#',' ','#',' ','#',' ','#'},
+                    {'#','#','#','#','#','#','#','#','#'},
+                    {'#',' ','#',' ','#',' ','#',' ','#'},
+                    {'#','#','#','#','#','#','#','#','#'},
                     {'#','#','#','#','#','#','#','#','#'}
                     };
 
@@ -59,11 +65,11 @@ public class RecursiveBacktracker implements MazeGenerator {
                 return false;
             }
         } catch(ArrayIndexOutOfBoundsException e){
-            return false;
+            return true;
         }
     }
     private void setVisitedField(int x, int y) { //sets vistedfield
-        System.out.println(y +""+x);
+        //System.out.println(y +""+x);
         visitedField[y][x] = true;
     }
     private void removeWall(int orientation, int x, int y){
@@ -78,10 +84,17 @@ public class RecursiveBacktracker implements MazeGenerator {
                 map[y - 1][x] = FREE;
             } 
         }catch(ArrayIndexOutOfBoundsException r){
-            System.out.println("Tried to remove non existed wall");
+            System.out.println("Tried to remove non existing wall");
         }
     }
-   
+    /*
+    randomField needs to to:
+        get possible Fields
+        choose a random one
+        return orientation
+
+
+    */
     private int[] randomField(int x, int y){
         boolean [] posField = freeField(x,y);
         
@@ -89,6 +102,7 @@ public class RecursiveBacktracker implements MazeGenerator {
         
         while(true){
             int rand = random();
+            
             if (posField[rand] == true){
                 rField[2] = rand;
                 break;
@@ -114,11 +128,12 @@ public class RecursiveBacktracker implements MazeGenerator {
             rField[0] = x + 2;
             rField[1] = y;
         } 
+        System.out.println("RANDOM: " + rField[0] +" "+rField[1] );
         return rField;
 
     }
     private int random(){
-        int rand = (int)(Math.random() * 5); 
+        int rand = (int)(Math.random() * 4); 
         return rand;
     }
 }
