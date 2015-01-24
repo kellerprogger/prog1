@@ -81,14 +81,7 @@ public class RecursiveBacktracker implements MazeGenerator {
             System.out.println("Tried to remove non existed wall");
         }
     }
-    /*
-    randomField needs to to:
-        get possible Fields
-        choose a random one
-        return orientation
-
-
-    */
+   
     private int[] randomField(int x, int y){
         boolean [] posField = freeField(x,y);
         
