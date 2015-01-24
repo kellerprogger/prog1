@@ -4,5 +4,6 @@ clean:
 	$(RM) *.class
 play:
 	java Crawler
-all:
-	javac Crawler.java 
+run:
+	javac Crawler.java
+	java Crawler

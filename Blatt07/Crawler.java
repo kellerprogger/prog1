@@ -17,7 +17,7 @@ public class Crawler{
         }; */ 
         
         MazeGenerator gen = new RecursiveBacktracker();
-        char[][] mapData = gen.generate(10,20);
+        char[][] mapData = gen.generate(1,1);
         
         Level m  = new Level(mapData);
         m.setPlayerPosition(1,1);

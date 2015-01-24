@@ -1,6 +1,4 @@
 public class RecursiveBacktracker implements MazeGenerator {
-
-    private boolean[][] visitedField = new boolean[map.length()][map[0].length()];
     
     char[][] map = {{'#','#','#','#','#','#','#','#','#'},
                     {'#',' ','#',' ','#',' ','#',' ','#'},
@@ -9,12 +7,15 @@ public class RecursiveBacktracker implements MazeGenerator {
                     {'#','#','#','#','#','#','#','#','#'}
                     };
 
+    private boolean[][] visitedField = new boolean[map.length][map[0].length];
+     
+    
     public char[][] generate(int y, int x){
         System.out.println(generator(x,y));
         
         return map;
     }
-    
+     
     
     public boolean generator(int x, int y){
         while(freeField(x,y)[4] == false){
@@ -22,7 +23,7 @@ public class RecursiveBacktracker implements MazeGenerator {
 
             removeWall(field[2], x, y); //field[2] holds orientation
 
-            setVisitedField(field[0, field[1]);
+            setVisitedField(field[0], field[1]);
 
             generator(field[0], field[1]);
 
@@ -62,17 +63,22 @@ public class RecursiveBacktracker implements MazeGenerator {
         }
     }
     private void setVisitedField(int x, int y) { //sets vistedfield
+        System.out.println(y +""+x);
         visitedField[y][x] = true;
     }
     private void removeWall(int orientation, int x, int y){
-        if (orientation == 0){ // North
-            map[y][x + 1] = FREE;
-        } else if (orientation == 1){ //South
-            map[y][x - 1] = FREE;
-        } else if (orientation == 2){ //West
-            map[y + 1][x] = FREE;
-        } else if (orientation == 3){ //East
-            map[y - 1][x] = FREE;
+        try{
+            if (orientation == 0){ // North
+                map[y][x + 1] = FREE;
+            } else if (orientation == 1){ //South
+                map[y][x - 1] = FREE;
+            } else if (orientation == 2){ //West
+                map[y + 1][x] = FREE;
+            } else if (orientation == 3){ //East
+                map[y - 1][x] = FREE;
+            } 
+        }catch(ArrayIndexOutOfBoundsException r){
+            System.out.println("Tried to remove non existed wall");
         }
     }
     /*
@@ -99,19 +105,19 @@ public class RecursiveBacktracker implements MazeGenerator {
             }
         }
 
-        if (rField[3] == 0){ //North
+        if (rField[2] == 0){ //North
             rField[0] = x;
             rField[1] = y + 2;
 
-        } else if(rField[3] == 1){ // South
+        } else if(rField[2] == 1){ // South
             rField[0] = x;
             rField[1] = y - 2;
 
-        } else if(rField[3] == 2){ //West
+        } else if(rField[2] == 2){ //West
             rField[0] = x - 2;
             rField[1] = y;
 
-        } else if(rField[3] == 3){ //East
+        } else if(rField[2] == 3){ //East
             rField[0] = x + 2;
             rField[1] = y;
         } 
