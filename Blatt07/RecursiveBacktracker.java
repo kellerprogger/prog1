@@ -38,73 +38,89 @@ public class RecursiveBacktracker implements MazeGenerator {
     }
     private boolean[] freeField(int x, int y){
         boolean [] orient = new boolean [5];
-
-        if (!getVisitedField(x + 2, y)){ // If field Free return true
+        
+        if (getVisitedField(x + 2, y) == 1){ // If field Free return true
             orient[3] = true; //East
 
-        } else if (!getVisitedField(x - 2, y)){
+        } if (getVisitedField(x - 2, y) == 1){
             orient[2] = true;// West
 
-        } else if (!getVisitedField(x, y + 2)){
+        } if (getVisitedField(x, y + 2) == 1){
             orient[0] = true;// North
 
-        } else if (!getVisitedField(x, y - 2)){
+        } if (getVisitedField(x, y - 2) ==1){
             orient[1] = true; //South
+        
 
-        } else {
-            orient[4] = true; //NONE
         }
-        return orient;
+        //System.out.println(orient[0] +" "+orient[1]+" "+orient[2]+" "+orient[3]); 
+        if (orient[0] == 1 || orient[1] == 1 || orient[2] == 1 || orient[3] == 1){
+            
+            return orient;
+        if
+        } else {
+            orient[4] = true; 
+            return orient;
+
+        }
+               
+        
     }
-    private boolean getVisitedField(int x, int y) { //Exeption out of bounds
+    private int getVisitedField(int x, int y) { //Exeption out of bounds
+        int i ;
         try {
-            if (visitedField[y][x]){
-                return true;
-            }
-            else{
+            if (visitedField[y][x]){ //False == not visted
+                i = 0;
                 return false;
             }
+            else{
+                i = 1;
+                return true;
+            }
         } catch(ArrayIndexOutOfBoundsException e){
-            return true;
+            i = -1;
+            return i;
         }
     }
     private void setVisitedField(int x, int y) { //sets vistedfield
         //System.out.println(y +""+x);
+        try{
         visitedField[y][x] = true;
+        } catch (ArrayIndexOutOfBoundsException e){
+            //NOTHING :)
+        }
     }
     private void removeWall(int orientation, int x, int y){
         try{
             if (orientation == 0){ // North
-                map[y][x + 1] = FREE;
-            } else if (orientation == 1){ //South
-                map[y][x - 1] = FREE;
-            } else if (orientation == 2){ //West
                 map[y + 1][x] = FREE;
-            } else if (orientation == 3){ //East
+            } else if (orientation == 1){ //South
                 map[y - 1][x] = FREE;
+            } else if (orientation == 2){ //West
+                map[y][x - 1] = FREE;
+            } else if (orientation == 3){ //East
+                map[y][x + 1] = FREE;
             } 
         }catch(ArrayIndexOutOfBoundsException r){
             System.out.println("Tried to remove non existing wall");
         }
     }
-    /*
-    randomField needs to to:
-        get possible Fields
-        choose a random one
-        return orientation
-
-
-    */
+   
     private int[] randomField(int x, int y){
         boolean [] posField = freeField(x,y);
-        
+ 
         int [] rField = new int[3];
         
         while(true){
             int rand = random();
-            
+            //System.out.println(posField[0]+ " " + posField[1]+ " " + posField[2] +" " +posField[3] +" "+  posField[4]);
+            //System.out.println(rand); 
             if (posField[rand] == true){
+                
                 rField[2] = rand;
+                break;
+            }
+            if (posField[4]){
                 break;
             }
             else{
@@ -127,8 +143,8 @@ public class RecursiveBacktracker implements MazeGenerator {
         } else if(rField[2] == 3){ //East
             rField[0] = x + 2;
             rField[1] = y;
-        } 
-        System.out.println("RANDOM: " + rField[0] +" "+rField[1] );
+        }
+        System.out.println("RANDOM: " + rField[0] +" "+rField[1]+ " " +rField[2] );
         return rField;
 
     }
