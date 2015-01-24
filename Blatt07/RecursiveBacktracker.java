@@ -1,6 +1,6 @@
 public class RecursiveBacktracker implements MazeGenerator {
 
-    private boolean[][] visitedField = new boolean[map.length()][map[].length()];
+    private boolean[][] visitedField = new boolean[map.length()][map[0].length()];
 
     public char[][] generate(int y, int x){
 
