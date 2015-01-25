@@ -75,14 +75,7 @@ public class RecursiveBacktracker implements MazeGenerator {
             map[y - 1][x] = FREE;
         }
     }
-    /*
-    randomField needs to to:
-        get possible Fields
-        choose a random one
-        return orientation
-
-
-    */
+   
     private int[] randomField(int x, int y){
         boolean [] posField = freeField(x,y);
         
