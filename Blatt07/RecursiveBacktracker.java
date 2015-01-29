@@ -1,19 +1,28 @@
 public class RecursiveBacktracker implements MazeGenerator {
-    
-//    TODO WRITE CONSTRUCTOR !!!!
 
-    boolean[][] visitedField = new boolean[33][33];
-    char[][] map = new char[33][33];
+//    TODO WRITE CONSTRUCTOR !!!!
+    int ySize;
+    int xSize;
     
-    public char[][] generate(int y, int x){
-       
-        if ( y % 2 == 1 && x % 2 == 1){
-            for (int i = 0; i < y; i++){
-                for (int j = 0; j < x; j += 1){
-                    if ( j % 2 == 0 || i == 0 || i == y - 1 || i % 2 == 0){
-                        map[i][j] = '#';
+   // public RecursiveBacktracker(int ySize, int xSize){
+     //   this.ySize = ySize;
+       // this.xSize = xSize;
+
+    
+
+    boolean[][] visitedField = new boolean[ySize][xSize];
+    char[][] map = new char[ySize][xSize];
+    
+    public char[][] generate(int ySize, int xSize){
+        this.ySize = ySize;
+        this.xSize = xSize;
+        if ( ySize % 2 == 1 && xSize % 2 == 1){
+            for (int i = 0; i < ySize; i++){
+                for (int j = 0; j < xSize; j += 1){
+                    if ( j % 2 == 0 || i == 0 || i == ySize - 1 || i % 2 == 0){
+                        map[i][j] = WALL;
                     } else {
-                        map[i][j] = '.';
+                        map[i][j] = FREE;
                     }
                 }    
             }               
