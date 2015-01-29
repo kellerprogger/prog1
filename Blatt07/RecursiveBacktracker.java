@@ -126,24 +126,24 @@ public class RecursiveBacktracker implements MazeGenerator {
  
         int [] rField = new int[3];
         
-        while(true){
+        while (true) {
             int rand = random();
             //System.out.println(posField[0]+ " " + posField[1]+ " " + posField[2] +" " +posField[3] +" "+  posField[4]);
             //System.out.println(rand); 
-            if (posField[rand] == true){
+            if (posField[rand] == true) {
                 
                 rField[2] = rand;
                 break;
             }
-            if (posField[4]){
+            if (posField[4]) {
                 break;
             }
-            else{
+            else {
                 continue;
             }
         }
 
-        if (rField[2] == 0){ //North
+        if (rField[2] == 0) { //North
             rField[0] = x;
             rField[1] = y + 2;
 
