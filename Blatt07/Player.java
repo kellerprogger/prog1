@@ -1,8 +1,8 @@
 /**
-    Spielerklasse nach Spezifikationen
-    @author Tyrfing
-    @version 2.0.2
+@author Tyrfing
+@version 4.0.0
 */
+
 public class Player extends Entity{
     int healingPower;
     int remainingItemUses;

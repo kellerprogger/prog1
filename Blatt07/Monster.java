@@ -1,7 +1,6 @@
 /**
-    Monster Klasse nach spezifikationen
-    @author Tyrfing
-    @version 3.0.1
+@author Tyrfing
+@version 4.0.0
 */
 public class Monster extends Entity {
     String name;

@@ -2,7 +2,8 @@ prog1
 =====
 Hausaufgaben für Progammieren 1
 
-Game Version: 3.0.0
+Game Version: 4.0.0
 
+Kontakt:
+========
 Jabber: Tyrfing@jabber.ccc.de
-

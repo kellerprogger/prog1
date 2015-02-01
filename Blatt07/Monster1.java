@@ -1,3 +1,7 @@
+/**
+@author Tyrfing
+@version 4.0.0
+*/
 public class Monster1 extends Monster{
     public Monster1(int maxHp, int atk, double hitChance, String name) {
         super(maxHp, atk, hitChance, name);
@@ -20,5 +24,5 @@ public class Monster1 extends Monster{
             return x;
         }
 
-    }    
+    }
 }

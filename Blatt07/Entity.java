@@ -1,3 +1,7 @@
+/**
+@author Tyrfing
+@version 4.0.0
+*/
 public class Entity{
     int maxHp;
     int hp;
@@ -25,13 +29,13 @@ public class Entity{
             hp = 0;
         }
         return damage;
-    } 
+    }
 
     public int attack(Entity entity) {
         if (hitChance <= Math.random()) {
             return -1;
         } else {
-            
+
             int x = (int) (atk *  (Math.random() + 1));
             int realDamageTaken = entity.takeDamage(x);
             //System.out.println("Debug Message: " + "Dmg: " + x +" RealDmg: " + realDamageTaken);

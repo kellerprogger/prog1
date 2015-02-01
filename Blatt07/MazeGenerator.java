@@ -1,3 +1,7 @@
+/**
+@author Tyrfing
+@version 4.0.0
+*/
 public interface MazeGenerator {
 
     char WALL = '#';
@@ -9,5 +13,5 @@ public interface MazeGenerator {
     char GOAL = 'Z';
 
     char[][] generate(int height, int width);
-   
+
 }

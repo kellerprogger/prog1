@@ -1,3 +1,7 @@
+/**
+@author Tyrfing
+@version 4.0.0
+*/
 public class Monster2 extends Monster{
     public Monster2(int maxHp, int atk, double hitChance, String name) {
         super(maxHp, atk, hitChance, name);

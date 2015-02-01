@@ -1,19 +1,23 @@
+/**
+@author Tyrfing
+@version 4.0.0
+*/
 public class Level{
     char[][] mapData;
     char[][] map;
     int[]playerPosition = {0,0};
     boolean[] d = {false,false,false,false}; // 0==N,1==S,2==W,3==E
     boolean[][] usedField = new boolean [999][999]; //MAX FIELD SIZE
-    Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3); 
-    
-    
-    
-    
+    Player spieler = new Player(333, 33, 42, 4, 0.8, 20, 3);
+
+
+
+
     public Level(char[][] mapData){
         this.mapData = mapData;
         this.map = deepCopy(mapData);
     }
-    
+
     public void printer(char[][]map){
         for (int y = 0; y < map.length; y++){
             for (int x = 0; x < map[y].length; x++){
@@ -35,12 +39,12 @@ public class Level{
         return copy;
     }
     public void playerMapPosition(){
-        map = deepCopy(mapData); 
+        map = deepCopy(mapData);
         int x = playerPosition[0];
         int y = playerPosition[1];
         map[y][x] = 'P';
         printer(map);
-        
+
     }
     public String movement(){
         d[0] = false;
@@ -63,12 +67,12 @@ public class Level{
         } if (mapData[y][x - 1] != '#'){
          way += " West(w)";
          d[2] = true;
-         
+
         } if (mapData[y][x + 1] !=  '#') {
          way += " East(e)";
          d[3] = true;
 
-        } 
+        }
         return way;
     }
     public boolean move (String insert){
@@ -77,7 +81,7 @@ public class Level{
             return true;
 
         }else if (insert.equals("s") && d[1]){
-            playerPosition[1] += 1;  
+            playerPosition[1] += 1;
             return true;
 
         }else if (insert.equals("w") && d[2]){
@@ -90,7 +94,7 @@ public class Level{
         }else {
             return false;
         }
-            
+
     }
 
 
@@ -118,17 +122,17 @@ public class Level{
             forge();
             usedField[x][y] = true;
             return true;
-        
+
         } else if (mapData[y][x] == 'W'){
             System.out.println("Well");
             well();
             usedField[x][y] = true;
             return true;
-        
+
         } else if (mapData[y][x] == 'Z'){
             System.out.println("You have Won the Game");
             return false;
-        
+
         } else {
             System.out.println("Nothing Happend .. -.. .. --- -");
             return true;
@@ -154,4 +158,3 @@ public class Level{
         System.out.println();
     }*/
 }
-

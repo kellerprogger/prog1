@@ -1,11 +1,10 @@
 /**
-    Hier befindet sich das Spiel
-    @author Tyrfing
-    @version 2.0.2
+@author Tyrfing
+@version 4.0.0
 */
 import java.util.Scanner;
 public class Game {
-        
+
     public boolean createMonsterFight(Player spieler){
         boolean result;
         // 5 Verschiedene Monster werden erstellt
@@ -27,7 +26,7 @@ public class Game {
             result = fight (spieler, m4);
         } else {
             result = fight(spieler, m5);
-        } 
+        }
         return result;
     }
     /**
