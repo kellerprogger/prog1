@@ -17,7 +17,7 @@ public class RecursiveBacktracker implements MazeGenerator {
 
        public char[][] generate(int yStart, int xStart){ // wants players start position
               
-        if ( ySize % 2 == 1 && xSize % 2 == 1){
+        if ( ySize % 2 == 1 && xSize % 2 == 1 && xSize*ySize >= 15){
             for (int i = 0; i < ySize; i++){
                 for (int j = 0; j < xSize; j += 1){
                     if ( j % 2 == 0 || i == 0 || i == xSize - 1 || i % 2 == 0){
@@ -41,8 +41,8 @@ public class RecursiveBacktracker implements MazeGenerator {
             map[yStart][xStart] = START; //Sets Start
             //TODO FIX FINISH 
             try{
-                int yTarget = 1 + ( yStart * random()) % ySize ;
-                int xTarget = 1 + ( xStart * random()) % xSize ;
+                int yTarget = 1 + ( yStart * random() * ySize / 4) % ySize ;
+                int xTarget = 1 + ( xStart * random() * xSize / 3) % xSize ;
                 map[yTarget][xTarget] = GOAL ;
 
             }catch(ArrayIndexOutOfBoundsException e){
@@ -54,6 +54,7 @@ public class RecursiveBacktracker implements MazeGenerator {
         
          } else{
             System.out.println("FAIL :'( \uD83D\uDCA9 ");
+            return null; // Gen FAILED
         }
 
         System.out.println(generator(xStart, yStart));

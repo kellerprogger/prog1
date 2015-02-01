@@ -2,14 +2,32 @@ import java.util.Scanner;
 public class Crawler{
     public static void main (String[]args){
         Scanner scan = new Scanner(System.in);
+        Scanner scan1 = new Scanner(System.in);
         //Player Position
         int x = 1;
         int y = 1;
-        //TODO ADD USER INPUT  
-            
+        //Map Size
+        int xSize;
+        int ySize;
         
+        try{ 
+            System.out.println("Mapsize must be greater than 15 Fields, you can only input odd Numbers");
+            System.out.println("Enter the width of your Map!");
+            xSize = scan.nextInt();
+            
+            System.out.println("Enter the height of your Map!");
+            ySize = scan.nextInt();
+
+            if (xSize < 3 || ySize < 3 || xSize * ySize < 15){
+                throw new java.util.InputMismatchException();
+            }
+        }catch(java.util.InputMismatchException e){
+            System.out.println("You can't type numbers so we're using the default value (15x15)");
+            xSize = 15;
+            ySize = 15;
+        } 
     
-        MazeGenerator gen = new RecursiveBacktracker(3,33);
+        MazeGenerator gen = new RecursiveBacktracker(ySize,xSize);
         char[][] mapData = gen.generate(x,y);
         
         Level m  = new Level(mapData);
@@ -19,7 +37,7 @@ public class Crawler{
         while (true){
             m.playerMapPosition(); 
             System.out.println(m.movement()); 
-            String input = scan.nextLine();
+            String input = scan1.nextLine();
             if (m.move(input)){
                 System.out.println("Movement Succesfull");
                  if(m.possibleActions() == false){
