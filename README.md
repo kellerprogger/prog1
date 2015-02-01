@@ -1,7 +1,5 @@
-prog1
-=====
 Hausaufgaben für Progammieren 1
-
+===============================
 Game Version: 4.0.0
 
 Kontakt:
